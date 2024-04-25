@@ -17,7 +17,7 @@
 // let rhymes = RiTa.rhymes("car");
 // write(rhymes);
 
-let englishtext;
+let englishtext = "To Zhenghang, who says there is no youth? Love each other, and spring is always here. Old trees bear new words. The rebirth of the year is not strangled. There are daybreaks and nightfalls. Pause laughing at loungers with bare branches. April rains and breezes with flowers from the soul. Thousands of miles Jiangling flows eternally. Yuzhou is under the cloudless and blue waves. Dipping into the colorful river, sipping and writing late autumn with grandchildren. I don't see the clouds of Sichuan in the southern sky. The drunk invites the golden moon and bamboo flute. Homesickness is impenetrable! Who is the dreamer tonight? The moon swings on the corner of the sea, and the waves are flat. Green fireflies swiftly escape and blow the evening wind. Sit on the pole and wait for the bell to ring. I am fishing leisurely with the fisherman. The sunrise at the shore is passionate. Virtuous children accompany me. I am walking with stride, and spring is never forgotten. Thousands of drinks with family. Birds are chirping outside the window. Spring is speechless beyond the door. Give flowers to birthday star. Zhenghang giggles out loud. The jade rabbit lifts into the sky, drinks to worship the moon, kisses the flute, and feels nostalgic. The fragrance of books is everywhere. Learn from ancient to modern East, West, South, North, and Middle Five states unite the World. Gold wood water, fire, and earth. A match made in heaven. The luna dangles a round of universe in mind. Heart to spirit, no matter where we are.";
 let genText1;
 let genText2;
 let genText3;
@@ -29,25 +29,33 @@ let sentence4;
 let punctuations = ["，", "，", "，", "。", "。", "！", "？"];
 let markov;
 var chinesepoems = document.getElementById("chinesepoems");
+// response => {
+//     return response.text();
+//   }
+// data => {
+//     englishtext = data;
+//     generate();
+//   };
 
-fetch("englishtext.txt")
-  .then(response => {
-    return response.text();
-  })
-  .then(data => {
-    englishtext = data;
-    generate();
-  });
-
-function generate() {
+// fetch("englishtext.txt")
+//   .then(response => {
+//     return response.text();
+//   })
+//   .then(data => {
+//     englishtext = data;
+//     generate();
+//   });
+enggenerate();
+function enggenerate() {
   markov = RiTa.markov(2);
 
   markov.addText(englishtext);
 
-  genText1 = markov.generate(1);
-  genText2 = markov.generate(1);
-  genText3 = markov.generate(1);
-  genText4 = markov.generate(1);
+  genText1 = markov.generate();
+  genText2 = markov.generate();
+  genText3 = markov.generate();
+  genText4 = markov.generate();
+  console.log (genText1);
 
   // genText1.join(" ");
   // genText2.join(" ");
